@@ -1,0 +1,142 @@
+DROP DATABASE IF EXISTS project;
+
+CREATE DATABASE project;
+
+\c project;
+
+START TRANSACTION;
+
+CREATE TABLE train (
+    id INT PRIMARY KEY,
+    target INT,
+    ps_ind_01 INT,
+    ps_ind_02_cat INT NOT NULL,
+    ps_ind_03 INT,
+    ps_ind_04_cat INT NOT NULL,
+    ps_ind_05_cat INT NOT NULL,
+    ps_ind_06_bin INT NOT NULL,
+    ps_ind_07_bin INT NOT NULL,
+    ps_ind_08_bin INT NOT NULL,
+    ps_ind_09_bin INT NOT NULL,
+    ps_ind_10_bin INT NOT NULL,
+    ps_ind_11_bin INT NOT NULL,
+    ps_ind_12_bin INT NOT NULL,
+    ps_ind_13_bin INT NOT NULL,
+    ps_ind_14 INT,
+    ps_ind_15 INT,
+    ps_ind_16_bin INT NOT NULL,
+    ps_ind_17_bin INT NOT NULL,
+    ps_ind_18_bin INT NOT NULL,
+    ps_reg_01 DOUBLE,
+    ps_reg_02 DOUBLE,
+    ps_reg_03 DOUBLE,
+    ps_car_01_cat INT NOT NULL,
+    ps_car_02_cat INT NOT NULL,
+    ps_car_03_cat INT NOT NULL,
+    ps_car_04_cat INT NOT NULL,
+    ps_car_05_cat INT NOT NULL,
+    ps_car_06_cat INT NOT NULL,
+    ps_car_07_cat INT NOT NULL,
+    ps_car_08_cat INT NOT NULL,
+    ps_car_09_cat INT NOT NULL,
+    ps_car_10_cat INT NOT NULL,
+    ps_car_11_cat INT NOT NULL,
+    ps_car_11 INT,
+    ps_car_12 DOUBLE,
+    ps_car_13 DOUBLE,
+    ps_car_14 DOUBLE,
+    ps_car_15 DOUBLE,
+    ps_calc_01 DOUBLE,
+    ps_calc_02 DOUBLE,
+    ps_calc_03 DOUBLE,
+    ps_calc_04 INT,
+    ps_calc_05 INT,
+    ps_calc_06 INT,
+    ps_calc_07 INT,
+    ps_calc_08 INT,
+    ps_calc_09 INT,
+    ps_calc_10 INT,
+    ps_calc_11 INT,
+    ps_calc_12 INT,
+    ps_calc_13 INT,
+    ps_calc_14 INT,
+    ps_calc_15_bin INT NOT NULL,
+    ps_calc_16_bin INT NOT NULL,
+    ps_calc_17_bin INT NOT NULL,
+    ps_calc_18_bin INT NOT NULL,
+    ps_calc_19_bin INT NOT NULL,
+    ps_calc_20_bin INT NOT NULL
+);
+
+
+CREATE TABLE test (
+    id INT NOT NULL,
+    ps_ind_01 INT NOT NULL,
+    ps_ind_02_cat INT NOT NULL,
+    ps_ind_03 INT NOT NULL,
+    ps_ind_04_cat INT NOT NULL,
+    ps_ind_05_cat INT NOT NULL,
+    ps_ind_06_bin INT NOT NULL,
+    ps_ind_07_bin INT NOT NULL,
+    ps_ind_08_bin INT NOT NULL,
+    ps_ind_09_bin INT NOT NULL,
+    ps_ind_10_bin INT NOT NULL,
+    ps_ind_11_bin INT NOT NULL,
+    ps_ind_12_bin INT NOT NULL,
+    ps_ind_13_bin INT NOT NULL,
+    ps_ind_14 INT NOT NULL,
+    ps_ind_15 INT NOT NULL,
+    ps_ind_16_bin INT NOT NULL,
+    ps_ind_17_bin INT NOT NULL,
+    ps_ind_18_bin INT NOT NULL,
+    ps_reg_01 FLOAT NOT NULL,
+    ps_reg_02 FLOAT NOT NULL,
+    ps_reg_03 FLOAT NOT NULL,
+    ps_car_01_cat INT NOT NULL,
+    ps_car_02_cat INT NOT NULL,
+    ps_car_03_cat INT NOT NULL,
+    ps_car_04_cat INT NOT NULL,
+    ps_car_05_cat INT NOT NULL,
+    ps_car_06_cat INT NOT NULL,
+    ps_car_07_cat INT NOT NULL,
+    ps_car_08_cat INT NOT NULL,
+    ps_car_09_cat INT NOT NULL,
+    ps_car_10_cat INT NOT NULL,
+    ps_car_11_cat INT NOT NULL,
+    ps_car_11 INT NOT NULL,
+    ps_car_12 FLOAT NOT NULL,
+    ps_car_13 FLOAT NOT NULL,
+    ps_car_14 FLOAT NOT NULL,
+    ps_car_15 FLOAT NOT NULL,
+    ps_calc_01 FLOAT NOT NULL,
+    ps_calc_02 FLOAT NOT NULL,
+    ps_calc_03 FLOAT NOT NULL,
+    ps_calc_04 INT NOT NULL,
+    ps_calc_05 INT NOT NULL,
+    ps_calc_06 INT NOT NULL,
+    ps_calc_07 INT NOT NULL,
+    ps_calc_08 INT NOT NULL,
+    ps_calc_09 INT NOT NULL,
+    ps_calc_10 INT NOT NULL,
+    ps_calc_11 INT NOT NULL,
+    ps_calc_12 INT NOT NULL,
+    ps_calc_13 INT NOT NULL,
+    ps_calc_14 INT NOT NULL,
+    ps_calc_15_bin INT NOT NULL,
+    ps_calc_16_bin INT NOT NULL,
+    ps_calc_17_bin INT NOT NULL,
+    ps_calc_18_bin INT NOT NULL,
+    ps_calc_19_bin INT NOT NULL,
+    ps_calc_20_bin INT NOT NULL
+);
+
+SET datestyle TO iso, ymd;
+
+\COPY emps FROM 'data/train.csv' DELIMITER ',' CSV HEADER NULL AS 'null';
+
+\COPY depts FROM 'data/test.csv' DELIMITER ',' CSV HEADER NULL AS 'null';
+
+COMMIT;
+
+SELECT * from train;
+SELECT * from test;
